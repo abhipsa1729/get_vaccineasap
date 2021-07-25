@@ -9,10 +9,10 @@ base_cowin_url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/c
 
 now = datetime.now()
 today_date = now.strftime("%d-%m-%Y")
-api_url_telegram = "https://api.telegram.org/bot1934080764:AAE2sDeP-eCLZKZ9cGrIsEG-kcVb3rQB5wY/sendMessage?chat_id=@__groupid__&text="
+api_url_telegram = "https://api.telegram.org/........=@__groupid__&text="
 group_id = "Getvaccineasap"
 
-#jsr_district_ids = [240, 242, 247, 255, 257, 263]
+
 def fetch_data_from_cowin(district_id):
     query_params = "?district_id={}&date={}".format(district_id, today_date)
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
@@ -20,11 +20,6 @@ def fetch_data_from_cowin(district_id):
     response = requests.get(final_url, headers=headers)
     extract_availability_data(response)
     print(response)
-
-
-# def fetch_data_for_state(district_ids):
-#     for district_id in district_ids:
-#         fetch_data_from_cowin(district_id)
 
 def extract_availability_data(response):
     response_json = response.json()
