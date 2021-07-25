@@ -1,5 +1,3 @@
-#base_cowin_url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=142&date=21-07-2021"
-
 import requests
 from datetime import datetime
 import time
@@ -25,11 +23,7 @@ def extract_availability_data(response):
     response_json = response.json()
     # count=0
     for center in response_json["centers"]:
-        for session in center["sessions"]:
-            # if session["available_capacity_dose1"]>0:             
-                # print(center["center_id"], center["name"],
-                #  session["available_capacity_dose1"],             
-                #  session["min_age_limit"])                        
+        for session in center["sessions"]:                          
                 message= "Pincode: {} \nName: {}  \nDose-1:{}  \nDose-2:{}  \nDate: {}  \nVaccine: {}  \nFee Type: {}  \nMinimum Age: {} \n----".format(
                     center["pincode"], center["name"],
                     session["available_capacity_dose1"],
